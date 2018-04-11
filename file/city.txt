@@ -1,0 +1,1153 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>城市对比-城市进入-CRIC投资决策</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="/Content/reset.css?_v=23" />
+    <link rel="stylesheet" href="/Content/reset2.css?_v=23" />
+    <link rel="stylesheet" href="/Content/animation.css" />
+    <link rel="stylesheet" href="/Content/icon.css" />
+    <link rel="shortcut icon" href="/Images/favicon.ico" />
+    <link rel="apple-touch-icon" href="img/touchicon.png" />
+    <script src="/Scripts/jquery-1.12.4.js"></script>
+    <script src="/Scripts/jquery-ui.js"></script>
+    <script src="/Scripts/Globe.js?_v=23"></script>
+    <link rel="stylesheet" href="/Content/superTables.css" />
+    <script src="/Scripts/jquery.superTable.js"></script>
+    <script src="/Scripts/superTables.js"></script>
+    <script src="/Scripts/genel.js"></script>
+    <script src="/Scripts/Util.js"></script>
+    <link rel="stylesheet" href="/Content/introjs.css" />
+    <script src="/Scripts/intro.js"></script>
+    <link href="/Content/jquery-ui.css" rel="stylesheet" />   
+    <link href="/Content/videoguide.css?_v=23" rel="stylesheet" />
+    <script src="/Scripts/jquery.video.guide.js?_v=23"></script>
+</head>
+<body>
+    <div class="u-logout">
+        <h6></h6>
+        <dl>
+            <dt title="hy154">hy154</dt>
+            <dd><a href="/Images/crichelp.pdf" target="_blank">操作说明</a></dd>
+            <dd><a href="javascript:;" onclick="globle.Util.OpenVideoGuide('all')">操作视频</a></dd>
+            
+            <dd><a href="/Account/LogOff">退出登录</a></dd>
+        </dl>
+    </div>
+    <div id="videodiv"></div>
+    
+
+    <div class="g-mainnav">
+        <div class="u-logo">
+            <a>
+                <img src="/Images/newlogo.png" /></a>
+        </div>
+        <div class="mainnav">
+            <dl class="cur">
+                <dt>
+                    <a href="/City/city">
+                        <img src="/Images/citynav1.png">
+                    </a>
+                </dt>
+            </dl>
+            <ul>
+                <li data-menukey="100001"><a href="/City/city">首页</a></li>
+                <li data-menukey="100002">
+                    <a href="/City/CitySearch/CitySearchIndex">城市<br>
+                        筛选
+                    </a>
+                </li>
+                <li data-menukey="100003">
+                    <a href="/City/CityCompare/CityCompareIndex">城市<br>
+                        对比
+                    </a>
+                </li>
+                <li data-menukey="100004">
+                    <a href="/City/CityMapTools/MapToolIndex">地图<br>
+                        工具
+                    </a>
+                </li>
+            </ul>
+            <dl>
+                <dt>
+                    <a href="/District/District/DistrictIndex">
+                        <img src="/Images/districtnav1.png">
+                    </a>
+                </dt>
+                <dd id="aChangeCity"><span>长沙</span><i class="triangle"></i></dd>
+            </dl>
+            <ul id="ulDistrict">
+                <li data-menukey="200001" class="cur"><a href="/District/District/DistrictIndex?CityName=%E9%95%BF%E6%B2%99">首页</a></li>
+                <li data-menukey="200100">
+                    <a href="/District/DistrictAnay/DistrictAnayIndex?CityName=%E9%95%BF%E6%B2%99">板块<br>
+                        分析
+                    </a>
+                </li>
+            </ul>
+            <dl>
+                <dt>
+                    <a href="/Land/LandDiscover/LandDiscoverIndex">
+                        <img src="/Images/discover.png">
+                    </a>
+                </dt>
+                <dd><span>武汉</span><i class="triangle"></i></dd>
+            </dl>
+            <a href="/Land/LandSearch/LandSearchIndex"><div class="leftsoso"><dt></dt><dd>地块搜索</dd></div></a>
+        </div>
+    </div>
+    
+    <div class="popbg"></div>
+    
+
+<div class="g-head">
+    <div class="m-logo"></div>   
+    <h3>城市进入</h3>
+    <div class="m-nav">
+        <li data-menukey="100001"><a href="/City/city">首页</a></li>
+        <li data-menukey="100002"><a href="/City/CitySearch/CitySearchIndex">城市筛选</a></li>
+        <li data-menukey="100003"><a href="/City/CityCompare/CityCompareIndex">城市对比</a></li>
+        <li data-menukey="100004"><a href="/City/CityMapTools/MapToolIndex">地图工具</a></li>
+    </div>
+</div>
+<script>
+    $(function () {
+        $(".g-head .m-nav li").each(function () {            
+            var key = '100003';
+            if (key == $(this).attr("data-menukey")) {
+                $(this).addClass("cur");
+            }
+        });
+
+        $(".m-logo").click(function () {
+            window.location.href = '/City/City';
+         });
+    })
+</script>
+
+
+
+
+
+
+<div class="g-bd">
+
+<div class="m-systemnav con_l">
+    
+    
+    <h3><s></s>CRIC常用评定指标</h3>
+    <div>
+        <ul id="importantRule">
+                <li title="说明城市对人口吸纳能力(当年平均常住人口/当年和上一年年末户籍人口的平均值)" data-id="618c552d-ec35-e711-bac2-eca86b3affee"><a>常住户籍人口比</a></li>
+                <li title="反映城市人口增长情况(过去五年常住人口的复合增长率)" data-id="628c552d-ec35-e711-bac2-eca86b3affee"><a>近年人口增速</a></li>
+                <li title="说明市场容量大小(过去五年商品住宅成交面积年均量)" data-id="638c552d-ec35-e711-bac2-eca86b3affee"><a>近年商住面积均值</a></li>
+                <li title="说明市场容量大小(过去五年商品住宅成交金额年均量)" data-id="648c552d-ec35-e711-bac2-eca86b3affee"><a>近年商住金额均值</a></li>
+                <li title="说明供需平衡情况（逆向指标越低越好）(土地供应面积/销售面积)" data-id="658c552d-ec35-e711-bac2-eca86b3affee"><a>土地消化周期</a></li>
+                <li title="从人口角度考量土地供应是否过量（逆向指标越低越好）(过去三年住宅土地供应面积/当年平均常住人口)" data-id="668c552d-ec35-e711-bac2-eca86b3affee"><a>近年人均供地规模</a></li>
+                <li title="体现出人均土地供应情况(当年全市平均人口/全市面积)" data-id="678c552d-ec35-e711-bac2-eca86b3affee"><a>人口密度</a></li>
+                <li title="反映居民购房积极性(近五年商品住宅人均成交金额年均量)" data-id="688c552d-ec35-e711-bac2-eca86b3affee"><a>近年人均购房支出</a></li>
+                <li title="反映居民购房积极性(近五年商品住宅人均成交面积年均量)" data-id="698c552d-ec35-e711-bac2-eca86b3affee"><a>近年人均购房面积</a></li>
+                <li title="表示居民在房地产市场上的消费能力(当年城镇居民可支配收入)" data-id="6a8c552d-ec35-e711-bac2-eca86b3affee"><a>城镇居民收入</a></li>
+                <li title="反映居民对房价的承受能力(城市人均居住面积*城市房价/城市人均可支配收入)" data-id="6b8c552d-ec35-e711-bac2-eca86b3affee"><a>购房能力</a></li>
+                <li title="反映城市居民支付首付能力(全市城乡居民人均储蓄可购房面积)" data-id="6c8c552d-ec35-e711-bac2-eca86b3affee"><a>首付能力</a></li>
+                <li title="反映城市人口规模(常住人口数)" data-id="6d8c552d-ec35-e711-bac2-eca86b3affee"><a>城市人口规模</a></li>
+                <li title="反映城市经济规模(城市GDP)" data-id="6e8c552d-ec35-e711-bac2-eca86b3affee"><a>城市经济规模</a></li>
+                <li title="城市教育发展水平(近五年人均地方财政教育支出平均量)" data-id="6f8c552d-ec35-e711-bac2-eca86b3affee"><a>软实力</a></li>
+                <li title="说明城市基础设施改善力度(近五年每平方米基础设施投资平均量)" data-id="708c552d-ec35-e711-bac2-eca86b3affee"><a>近年基础设施投资规模</a></li>
+                <li data-id="728c552d-ec35-e711-bac2-eca86b3affee"><a>城市资源及建设力</a></li>
+                <li data-id="738c552d-ec35-e711-bac2-eca86b3affee"><a>城市发展速度</a></li>
+                <li data-id="748c552d-ec35-e711-bac2-eca86b3affee"><a>城市综合实力</a></li>
+        </ul>
+    </div>
+    <h3><s></s>系统指标</h3>
+    <div>
+            <h5 class="fold"><s></s>土地和建设用地(40)</h5>
+            <ul style="display: none" id="systemRule">
+                     <li data-id="18d0f4ec-1223-e711-915b-eca86b3affee"><a>全市土地面积</a></li>
+                     <li data-id="19d0f4ec-1223-e711-915b-eca86b3affee"><a>市区土地面积</a></li>
+                     <li data-id="1ad0f4ec-1223-e711-915b-eca86b3affee"><a>城区面积</a></li>
+                     <li data-id="1bd0f4ec-1223-e711-915b-eca86b3affee"><a>城区面积占市区面积比例</a></li>
+                     <li data-id="1cd0f4ec-1223-e711-915b-eca86b3affee"><a>市区建成区面积</a></li>
+                     <li data-id="1dd0f4ec-1223-e711-915b-eca86b3affee"><a>市区建成区占市区比例</a></li>
+                     <li data-id="1ed0f4ec-1223-e711-915b-eca86b3affee"><a>市区建成区占城区面积比例</a></li>
+                     <li data-id="1fd0f4ec-1223-e711-915b-eca86b3affee"><a>市区建设用地面积</a></li>
+                     <li data-id="20d0f4ec-1223-e711-915b-eca86b3affee"><a>市区建设用地占市区比例</a></li>
+                     <li data-id="21d0f4ec-1223-e711-915b-eca86b3affee"><a>市区建设用地占城区面积比例</a></li>
+                     <li data-id="23d0f4ec-1223-e711-915b-eca86b3affee"><a>市区城市人均建设用地面积</a></li>
+                     <li data-id="24d0f4ec-1223-e711-915b-eca86b3affee"><a>市区城市居住用地面积</a></li>
+                     <li data-id="25d0f4ec-1223-e711-915b-eca86b3affee"><a>市区城市居住用地占建设用地比例</a></li>
+                     <li data-id="26d0f4ec-1223-e711-915b-eca86b3affee"><a>市区城市人均居住用地面积</a></li>
+                     <li data-id="27d0f4ec-1223-e711-915b-eca86b3affee"><a>市区城市公共设施用地面积</a></li>
+                     <li data-id="28d0f4ec-1223-e711-915b-eca86b3affee"><a>市区城市公共设施用地占建设用地比例</a></li>
+                     <li data-id="29d0f4ec-1223-e711-915b-eca86b3affee"><a>市区城市人均公共设施用地面积</a></li>
+                     <li data-id="2ad0f4ec-1223-e711-915b-eca86b3affee"><a>市区城市工业用地面积</a></li>
+                     <li data-id="2bd0f4ec-1223-e711-915b-eca86b3affee"><a>市区城市工业用地占建设用地比例</a></li>
+                     <li data-id="2cd0f4ec-1223-e711-915b-eca86b3affee"><a>市区城市仓储物流用地面积</a></li>
+                     <li data-id="2dd0f4ec-1223-e711-915b-eca86b3affee"><a>市区城市仓储物流用地占建设用地比例</a></li>
+                     <li data-id="2ed0f4ec-1223-e711-915b-eca86b3affee"><a>市区城市市政公用设施用地面积</a></li>
+                     <li data-id="2fd0f4ec-1223-e711-915b-eca86b3affee"><a>市区城市市政公用设施用地占建设用地比例</a></li>
+                     <li data-id="30d0f4ec-1223-e711-915b-eca86b3affee"><a>市区城市人均市政公用设施用地面积</a></li>
+                     <li data-id="37d0f4ec-1223-e711-915b-eca86b3affee"><a>市区征用土地面积</a></li>
+                     <li data-id="38d0f4ec-1223-e711-915b-eca86b3affee"><a>市区本年征用土地占建设用地比例</a></li>
+                     <li data-id="39d0f4ec-1223-e711-915b-eca86b3affee"><a>市区本年征用土地中耕地面积</a></li>
+                     <li data-id="3ad0f4ec-1223-e711-915b-eca86b3affee"><a>市区本年征用耕地占征用土地比例</a></li>
+                     <li data-id="8fbe3ece-e123-e711-915b-eca86b3affee"><a>市区城市公共管理用地面积</a></li>
+                     <li data-id="90be3ece-e123-e711-915b-eca86b3affee"><a>市区城市公共管理用地占建设用地比例</a></li>
+                     <li data-id="27a9804f-e423-e711-915b-eca86b3affee"><a>市区城市商业服务设施用地面积</a></li>
+                     <li data-id="28a9804f-e423-e711-915b-eca86b3affee"><a>市区城市商业服务设施用地占建设用地比例</a></li>
+                     <li data-id="938e480e-e623-e711-915b-eca86b3affee"><a>市区城市道路交通用地面积</a></li>
+                     <li data-id="948e480e-e623-e711-915b-eca86b3affee"><a>市区城市道路交通用地占建设用地比例</a></li>
+                     <li data-id="a08648e7-fb23-e711-915b-eca86b3affee"><a>市区城市绿地、广场用地面积</a></li>
+                     <li data-id="a18648e7-fb23-e711-915b-eca86b3affee"><a>市区城市绿地、广场用地占建设用地比例</a></li>
+                     <li data-id="a50a9dca-0924-e711-915b-eca86b3affee"><a>市区城市人均公共管理用地面积</a></li>
+                     <li data-id="a60a9dca-0924-e711-915b-eca86b3affee"><a>市区城市人均商业服务设施用地面积</a></li>
+                     <li data-id="3721782e-0c24-e711-915b-eca86b3affee"><a>市区城市人均道路交通用地面积</a></li>
+                     <li data-id="3821782e-0c24-e711-915b-eca86b3affee"><a>市区城市人均绿地、广场用地面积</a></li>
+            </ul>
+            <h5 class="fold"><s></s>人口和就业(45)</h5>
+            <ul style="display: none" id="systemRule">
+                     <li data-id="59742dd9-1423-e711-915b-eca86b3affee"><a>全市常住人口比上年增长</a></li>
+                     <li data-id="5a742dd9-1423-e711-915b-eca86b3affee"><a>全市年末户籍人口</a></li>
+                     <li data-id="5b742dd9-1423-e711-915b-eca86b3affee"><a>全市常住人口人口密度</a></li>
+                     <li data-id="5c742dd9-1423-e711-915b-eca86b3affee"><a>全市户籍人口密度</a></li>
+                     <li data-id="5d742dd9-1423-e711-915b-eca86b3affee"><a>全市常住人口比户籍人口增加</a></li>
+                     <li data-id="5e742dd9-1423-e711-915b-eca86b3affee"><a>全市常住人口比户籍人口增长</a></li>
+                     <li data-id="5f742dd9-1423-e711-915b-eca86b3affee"><a>市区常住人口</a></li>
+                     <li data-id="60742dd9-1423-e711-915b-eca86b3affee"><a>市区年末户籍人口</a></li>
+                     <li data-id="61742dd9-1423-e711-915b-eca86b3affee"><a>市区常住人口密度</a></li>
+                     <li data-id="62742dd9-1423-e711-915b-eca86b3affee"><a>市区户籍人口密度</a></li>
+                     <li data-id="63742dd9-1423-e711-915b-eca86b3affee"><a>市区常住人口比户籍人口增加</a></li>
+                     <li data-id="64742dd9-1423-e711-915b-eca86b3affee"><a>市区常住人口比户籍人口增长</a></li>
+                     <li data-id="65742dd9-1423-e711-915b-eca86b3affee"><a>全巿年户籍平均人口</a></li>
+                     <li data-id="66742dd9-1423-e711-915b-eca86b3affee"><a>市区年户籍平均人口</a></li>
+                     <li data-id="69742dd9-1423-e711-915b-eca86b3affee"><a>全市年底总户数</a></li>
+                     <li data-id="6a742dd9-1423-e711-915b-eca86b3affee"><a>全市户均人口</a></li>
+                     <li data-id="6b742dd9-1423-e711-915b-eca86b3affee"><a>全市乡村常住户数</a></li>
+                     <li data-id="6c742dd9-1423-e711-915b-eca86b3affee"><a>市区人口（建设部数据）</a></li>
+                     <li data-id="6d742dd9-1423-e711-915b-eca86b3affee"><a>市区暂住人口（建设部数据）</a></li>
+                     <li data-id="6e742dd9-1423-e711-915b-eca86b3affee"><a>城区人口（建设部数据）</a></li>
+                     <li data-id="6f742dd9-1423-e711-915b-eca86b3affee"><a>城区暂住人口（建设部数据）</a></li>
+                     <li data-id="70742dd9-1423-e711-915b-eca86b3affee"><a>城区人口和暂住人口合计（建设部数据）</a></li>
+                     <li data-id="71742dd9-1423-e711-915b-eca86b3affee"><a>城市人口密度（建设部数据）</a></li>
+                     <li data-id="72742dd9-1423-e711-915b-eca86b3affee"><a>全市全社会就业人员</a></li>
+                     <li data-id="73742dd9-1423-e711-915b-eca86b3affee"><a>全市全社会就业人员占常住人口比例</a></li>
+                     <li data-id="74742dd9-1423-e711-915b-eca86b3affee"><a>全市城镇就业人员</a></li>
+                     <li data-id="75742dd9-1423-e711-915b-eca86b3affee"><a>市区城镇就业人员</a></li>
+                     <li data-id="76742dd9-1423-e711-915b-eca86b3affee"><a>全市单位从业人员</a></li>
+                     <li data-id="77742dd9-1423-e711-915b-eca86b3affee"><a>市区单位从业人员</a></li>
+                     <li data-id="78742dd9-1423-e711-915b-eca86b3affee"><a>全市城镇私营和个体劳动者</a></li>
+                     <li data-id="79742dd9-1423-e711-915b-eca86b3affee"><a>市区城镇私营和个体劳动者</a></li>
+                     <li data-id="7a742dd9-1423-e711-915b-eca86b3affee"><a>全市城镇私营和个体劳动者占比例</a></li>
+                     <li data-id="7b742dd9-1423-e711-915b-eca86b3affee"><a>市区城镇私营和个体劳动者占比例</a></li>
+                     <li data-id="7c742dd9-1423-e711-915b-eca86b3affee"><a>全市城镇登记失业人数</a></li>
+                     <li data-id="7d742dd9-1423-e711-915b-eca86b3affee"><a>市区城镇登记失业人数</a></li>
+                     <li data-id="7e742dd9-1423-e711-915b-eca86b3affee"><a>全市城镇登记失业率</a></li>
+                     <li data-id="7f742dd9-1423-e711-915b-eca86b3affee"><a>市区城镇登记失业率</a></li>
+                     <li data-id="d48d9722-d924-e711-915b-eca86b3affee"><a>全市年末常住人口</a></li>
+                     <li data-id="d58d9722-d924-e711-915b-eca86b3affee"><a>全市年平均常住人口</a></li>
+                     <li data-id="e09d2846-e224-e711-915b-eca86b3affee"><a>市区人口常住城镇人口</a></li>
+                     <li data-id="e19d2846-e224-e711-915b-eca86b3affee"><a>市区人口常住乡村人口</a></li>
+                     <li data-id="e29d2846-e224-e711-915b-eca86b3affee"><a>市区人口常住城镇人口占比例</a></li>
+                     <li data-id="b8155463-e224-e711-915b-eca86b3affee"><a>全市人口普查常住城镇人口</a></li>
+                     <li data-id="b9155463-e224-e711-915b-eca86b3affee"><a>全市人口普查常住乡村人口</a></li>
+                     <li data-id="ba155463-e224-e711-915b-eca86b3affee"><a>全市人口普查常住城镇人口占比例</a></li>
+            </ul>
+            <h5 class="fold"><s></s>经济核算(50)</h5>
+            <ul style="display: none" id="systemRule">
+                     <li data-id="62529c60-1523-e711-915b-eca86b3affee"><a>全市生产总值</a></li>
+                     <li data-id="63529c60-1523-e711-915b-eca86b3affee"><a>全市常住人口人均生产总值</a></li>
+                     <li data-id="64529c60-1523-e711-915b-eca86b3affee"><a>全市户籍人口人均生产总值</a></li>
+                     <li data-id="65529c60-1523-e711-915b-eca86b3affee"><a>全市第一产业增加值占生产总值比重</a></li>
+                     <li data-id="66529c60-1523-e711-915b-eca86b3affee"><a>全市第二产业增加值占生产总值比重</a></li>
+                     <li data-id="67529c60-1523-e711-915b-eca86b3affee"><a>全市第三产业增加值占生产总值比重</a></li>
+                     <li data-id="68529c60-1523-e711-915b-eca86b3affee"><a>市区生产总值</a></li>
+                     <li data-id="69529c60-1523-e711-915b-eca86b3affee"><a>市区常住人口人均生产总值</a></li>
+                     <li data-id="6a529c60-1523-e711-915b-eca86b3affee"><a>市区户籍人口人均生产总值</a></li>
+                     <li data-id="6b529c60-1523-e711-915b-eca86b3affee"><a>市区第一产业增加值占生产总值比重</a></li>
+                     <li data-id="6c529c60-1523-e711-915b-eca86b3affee"><a>市区第二产业增加值占生产总值比重</a></li>
+                     <li data-id="6d529c60-1523-e711-915b-eca86b3affee"><a>市区第三产业增加值占生产总值比重</a></li>
+                     <li data-id="6e529c60-1523-e711-915b-eca86b3affee"><a>全市固定资产投资总额</a></li>
+                     <li data-id="6f529c60-1523-e711-915b-eca86b3affee"><a>全市固定资产投资总额占生产总值比重</a></li>
+                     <li data-id="70529c60-1523-e711-915b-eca86b3affee"><a>市区固定资产投资总额</a></li>
+                     <li data-id="71529c60-1523-e711-915b-eca86b3affee"><a>市区固定资产投资占生产总值比重</a></li>
+                     <li data-id="72529c60-1523-e711-915b-eca86b3affee"><a>全市地方一般财政预算内收入</a></li>
+                     <li data-id="73529c60-1523-e711-915b-eca86b3affee"><a>全市地方财政一般预算内收入占生产总值比重</a></li>
+                     <li data-id="74529c60-1523-e711-915b-eca86b3affee"><a>全市户籍人均地方财政一般预算内收入</a></li>
+                     <li data-id="75529c60-1523-e711-915b-eca86b3affee"><a>全市常住人均地方财政一般预算内收入                                                                  </a></li>
+                     <li data-id="76529c60-1523-e711-915b-eca86b3affee"><a>全市地方税收收入</a></li>
+                     <li data-id="77529c60-1523-e711-915b-eca86b3affee"><a>全市地方税收收入占地方财政一般预算收入比例</a></li>
+                     <li data-id="78529c60-1523-e711-915b-eca86b3affee"><a>全市地方财政一般预算内支出</a></li>
+                     <li data-id="79529c60-1523-e711-915b-eca86b3affee"><a>全市地方财政一般预算内收支差额</a></li>
+                     <li data-id="7a529c60-1523-e711-915b-eca86b3affee"><a>全市教育事业费支出</a></li>
+                     <li data-id="7b529c60-1523-e711-915b-eca86b3affee"><a>全市教育事业费支出占财政支出比例</a></li>
+                     <li data-id="7c529c60-1523-e711-915b-eca86b3affee"><a>全市教育事业费支出占GDP比例</a></li>
+                     <li data-id="7d529c60-1523-e711-915b-eca86b3affee"><a>全市公共医疗卫生支出</a></li>
+                     <li data-id="7e529c60-1523-e711-915b-eca86b3affee"><a>全市公共医疗卫生支出占地方财政支出比重</a></li>
+                     <li data-id="7f529c60-1523-e711-915b-eca86b3affee"><a>全市公共医疗卫生支出占GDP比重</a></li>
+                     <li data-id="80529c60-1523-e711-915b-eca86b3affee"><a>全市地方财政科学事业费支出</a></li>
+                     <li data-id="81529c60-1523-e711-915b-eca86b3affee"><a>全市科学事业费支出占财政一般预算支出比例</a></li>
+                     <li data-id="82529c60-1523-e711-915b-eca86b3affee"><a>全市地方财政科学事业费支出占生产总值比例</a></li>
+                     <li data-id="83529c60-1523-e711-915b-eca86b3affee"><a>全市财政社会保障支出</a></li>
+                     <li data-id="84529c60-1523-e711-915b-eca86b3affee"><a>全市财政社会保障支出占地方财政预算支出比例</a></li>
+                     <li data-id="85529c60-1523-e711-915b-eca86b3affee"><a>全市财政社会保障支出占GDP比例</a></li>
+                     <li data-id="86529c60-1523-e711-915b-eca86b3affee"><a>市区地方财政一般预算内收入</a></li>
+                     <li data-id="87529c60-1523-e711-915b-eca86b3affee"><a>市区地方财政一般预算内收入占生产总值比重</a></li>
+                     <li data-id="88529c60-1523-e711-915b-eca86b3affee"><a>市区户籍人均地方财政一般预算内收入</a></li>
+                     <li data-id="89529c60-1523-e711-915b-eca86b3affee"><a>市区常住人均地方财政一般预算内收入</a></li>
+                     <li data-id="8a529c60-1523-e711-915b-eca86b3affee"><a>市区地方财政一般预算内支出</a></li>
+                     <li data-id="8b529c60-1523-e711-915b-eca86b3affee"><a>市区地方财政一般预算内收支差额</a></li>
+                     <li data-id="8c529c60-1523-e711-915b-eca86b3affee"><a>市区教育事业费支出</a></li>
+                     <li data-id="8d529c60-1523-e711-915b-eca86b3affee"><a>市区教育事业费支出占财政支出比重</a></li>
+                     <li data-id="8e529c60-1523-e711-915b-eca86b3affee"><a>市区教育事业费支出占GDP比重</a></li>
+                     <li data-id="8f529c60-1523-e711-915b-eca86b3affee"><a>市区地方财政科学事业费支出</a></li>
+                     <li data-id="90529c60-1523-e711-915b-eca86b3affee"><a>市区科学事业费支出占财政一般预算支出比重</a></li>
+                     <li data-id="91529c60-1523-e711-915b-eca86b3affee"><a>市区地方财政科学事业费支出占生产总值比重</a></li>
+                     <li data-id="fff0eb21-5d3c-e711-bf56-eca86b3affee"><a>全市生产总值增速</a></li>
+                     <li data-id="00f1eb21-5d3c-e711-bf56-eca86b3affee"><a>市区生产总值增速</a></li>
+            </ul>
+            <h5 class="fold"><s></s>产业经济(50)</h5>
+            <ul style="display: none" id="systemRule">
+                     <li data-id="5365b9f7-1523-e711-915b-eca86b3affee"><a>全市规模以上工业企业资产总计</a></li>
+                     <li data-id="5465b9f7-1523-e711-915b-eca86b3affee"><a>全市规模以上工业企业负债合计</a></li>
+                     <li data-id="5565b9f7-1523-e711-915b-eca86b3affee"><a>全市规模以上工业企业净资产</a></li>
+                     <li data-id="5665b9f7-1523-e711-915b-eca86b3affee"><a>全市规模以上工业企业资产负债率</a></li>
+                     <li data-id="5765b9f7-1523-e711-915b-eca86b3affee"><a>全市规模以上工业企业工业总产值</a></li>
+                     <li data-id="5865b9f7-1523-e711-915b-eca86b3affee"><a>市区规模以上工业企业工业总产值</a></li>
+                     <li data-id="5965b9f7-1523-e711-915b-eca86b3affee"><a>全市规模以上工业企业主营业务收入</a></li>
+                     <li data-id="5a65b9f7-1523-e711-915b-eca86b3affee"><a>全市规模以上工业企业利润总额</a></li>
+                     <li data-id="5b65b9f7-1523-e711-915b-eca86b3affee"><a>市区规模以上工业企业利润总额</a></li>
+                     <li data-id="5c65b9f7-1523-e711-915b-eca86b3affee"><a>全市规模以上工业企业利润总额/主营业收入</a></li>
+                     <li data-id="5d65b9f7-1523-e711-915b-eca86b3affee"><a>全市年末金融机构人民币存款余额</a></li>
+                     <li data-id="5e65b9f7-1523-e711-915b-eca86b3affee"><a>全市年末金融机构人民币贷款余额</a></li>
+                     <li data-id="5f65b9f7-1523-e711-915b-eca86b3affee"><a>全市年末金融机构人民币存贷款差额</a></li>
+                     <li data-id="6065b9f7-1523-e711-915b-eca86b3affee"><a>全市年末金融机构人民币存贷比</a></li>
+                     <li data-id="6165b9f7-1523-e711-915b-eca86b3affee"><a>市区年末金融机构人民币存款余额</a></li>
+                     <li data-id="6265b9f7-1523-e711-915b-eca86b3affee"><a>市区年末金融机构人民币贷款余额</a></li>
+                     <li data-id="6365b9f7-1523-e711-915b-eca86b3affee"><a>市区年末金融机构人民币存贷款差额</a></li>
+                     <li data-id="6465b9f7-1523-e711-915b-eca86b3affee"><a>市区年末金融机构人民币存贷比</a></li>
+                     <li data-id="6565b9f7-1523-e711-915b-eca86b3affee"><a>全市社会消费品零售额</a></li>
+                     <li data-id="6665b9f7-1523-e711-915b-eca86b3affee"><a>全市户籍人均社会消费品零售额</a></li>
+                     <li data-id="6765b9f7-1523-e711-915b-eca86b3affee"><a>全市常住人口人均社会消费品零售额</a></li>
+                     <li data-id="6865b9f7-1523-e711-915b-eca86b3affee"><a>市区社会消费品零售额</a></li>
+                     <li data-id="6965b9f7-1523-e711-915b-eca86b3affee"><a>市区户籍人均社会消费品零售额</a></li>
+                     <li data-id="6a65b9f7-1523-e711-915b-eca86b3affee"><a>市区常住人均社会消费品零售额</a></li>
+                     <li data-id="6b65b9f7-1523-e711-915b-eca86b3affee"><a>全市批发零售贸易业商品销售总额</a></li>
+                     <li data-id="6c65b9f7-1523-e711-915b-eca86b3affee"><a>市区批发零售贸易业商品销售总额</a></li>
+                     <li data-id="6d65b9f7-1523-e711-915b-eca86b3affee"><a>全市进出口总额</a></li>
+                     <li data-id="6e65b9f7-1523-e711-915b-eca86b3affee"><a>全市进口总额</a></li>
+                     <li data-id="6f65b9f7-1523-e711-915b-eca86b3affee"><a>全市出口总额</a></li>
+                     <li data-id="7065b9f7-1523-e711-915b-eca86b3affee"><a>全市净出口额</a></li>
+                     <li data-id="7165b9f7-1523-e711-915b-eca86b3affee"><a>全市当年实际使用外资金额</a></li>
+                     <li data-id="7265b9f7-1523-e711-915b-eca86b3affee"><a>市区当年实际使用外资金额</a></li>
+                     <li data-id="7365b9f7-1523-e711-915b-eca86b3affee"><a>全市公路里程</a></li>
+                     <li data-id="7465b9f7-1523-e711-915b-eca86b3affee"><a>全市等级公路</a></li>
+                     <li data-id="7565b9f7-1523-e711-915b-eca86b3affee"><a>全市等级公路占比例</a></li>
+                     <li data-id="7665b9f7-1523-e711-915b-eca86b3affee"><a>全市公路路网密度</a></li>
+                     <li data-id="7765b9f7-1523-e711-915b-eca86b3affee"><a>全市客运总量</a></li>
+                     <li data-id="7865b9f7-1523-e711-915b-eca86b3affee"><a>全市铁路客运量</a></li>
+                     <li data-id="7965b9f7-1523-e711-915b-eca86b3affee"><a>全市公路客运量</a></li>
+                     <li data-id="7a65b9f7-1523-e711-915b-eca86b3affee"><a>全市水运客运量</a></li>
+                     <li data-id="7b65b9f7-1523-e711-915b-eca86b3affee"><a>全市民用航空客运量</a></li>
+                     <li data-id="7c65b9f7-1523-e711-915b-eca86b3affee"><a>全市货运总量</a></li>
+                     <li data-id="7d65b9f7-1523-e711-915b-eca86b3affee"><a>全市铁路货运量</a></li>
+                     <li data-id="7e65b9f7-1523-e711-915b-eca86b3affee"><a>全市公路货运量</a></li>
+                     <li data-id="7f65b9f7-1523-e711-915b-eca86b3affee"><a>全市水运货运量</a></li>
+                     <li data-id="8065b9f7-1523-e711-915b-eca86b3affee"><a>全市民用航空货邮运量</a></li>
+                     <li data-id="8165b9f7-1523-e711-915b-eca86b3affee"><a>全市旅游总人数</a></li>
+                     <li data-id="8265b9f7-1523-e711-915b-eca86b3affee"><a>全市入境旅游人数</a></li>
+                     <li data-id="8365b9f7-1523-e711-915b-eca86b3affee"><a>全市国内旅游人数</a></li>
+                     <li data-id="8465b9f7-1523-e711-915b-eca86b3affee"><a>全市星级饭店总数</a></li>
+            </ul>
+            <h5 class="fold"><s></s>人民生活(38)</h5>
+            <ul style="display: none" id="systemRule">
+                     <li data-id="3c30a05c-1623-e711-915b-eca86b3affee"><a>城镇居民人均可支配收入</a></li>
+                     <li data-id="3d30a05c-1623-e711-915b-eca86b3affee"><a>城镇居民人均消费支出</a></li>
+                     <li data-id="3e30a05c-1623-e711-915b-eca86b3affee"><a>城镇居民人均食品消费支出</a></li>
+                     <li data-id="3f30a05c-1623-e711-915b-eca86b3affee"><a>城镇居民人均食品消费支出占比例</a></li>
+                     <li data-id="4030a05c-1623-e711-915b-eca86b3affee"><a>城镇居民人均收支结余</a></li>
+                     <li data-id="4130a05c-1623-e711-915b-eca86b3affee"><a>城镇居民消费倾向</a></li>
+                     <li data-id="4230a05c-1623-e711-915b-eca86b3affee"><a>农村居民人均纯收入</a></li>
+                     <li data-id="4330a05c-1623-e711-915b-eca86b3affee"><a>农村居民人均消费支出</a></li>
+                     <li data-id="4430a05c-1623-e711-915b-eca86b3affee"><a>农村居民人均收支结余</a></li>
+                     <li data-id="4530a05c-1623-e711-915b-eca86b3affee"><a>农村居民消费倾向</a></li>
+                     <li data-id="4630a05c-1623-e711-915b-eca86b3affee"><a>农村居民纯收入/城镇居民可支配收入</a></li>
+                     <li data-id="4730a05c-1623-e711-915b-eca86b3affee"><a>全市城乡居民年末储蓄余额</a></li>
+                     <li data-id="4830a05c-1623-e711-915b-eca86b3affee"><a>市区城乡居民年末储蓄余额</a></li>
+                     <li data-id="4930a05c-1623-e711-915b-eca86b3affee"><a>全市城乡常住居民人均年末储蓄余额</a></li>
+                     <li data-id="4a30a05c-1623-e711-915b-eca86b3affee"><a>全市城乡户籍居民人均年末储蓄余额</a></li>
+                     <li data-id="4b30a05c-1623-e711-915b-eca86b3affee"><a>市区城乡常住居民人均年末储蓄余额</a></li>
+                     <li data-id="4c30a05c-1623-e711-915b-eca86b3affee"><a>市区城乡户籍居民人均年末储蓄余额</a></li>
+                     <li data-id="4d30a05c-1623-e711-915b-eca86b3affee"><a>全市职工年平均工资</a></li>
+                     <li data-id="4e30a05c-1623-e711-915b-eca86b3affee"><a>市区职工年平均工资</a></li>
+                     <li data-id="4f30a05c-1623-e711-915b-eca86b3affee"><a>城镇人均住房面积</a></li>
+                     <li data-id="5030a05c-1623-e711-915b-eca86b3affee"><a>农村居民人均住房面积</a></li>
+                     <li data-id="5130a05c-1623-e711-915b-eca86b3affee"><a>城镇居民人均可支配收入可购全市商品住宅面积</a></li>
+                     <li data-id="5230a05c-1623-e711-915b-eca86b3affee"><a>全市职工年平均工资可购全市商品住宅面积</a></li>
+                     <li data-id="5330a05c-1623-e711-915b-eca86b3affee"><a>全市户籍人均储蓄可购全市商品住房面积</a></li>
+                     <li data-id="5430a05c-1623-e711-915b-eca86b3affee"><a>全市常住人均储蓄可购全市商品住房面积</a></li>
+                     <li data-id="5530a05c-1623-e711-915b-eca86b3affee"><a>全市财政社会保障支出</a></li>
+                     <li data-id="5630a05c-1623-e711-915b-eca86b3affee"><a>全市财政社会保障支出占地方财政预算支出比例</a></li>
+                     <li data-id="5730a05c-1623-e711-915b-eca86b3affee"><a>全市财政社会保障支出占GDP比例</a></li>
+                     <li data-id="5830a05c-1623-e711-915b-eca86b3affee"><a>全市基本养老人数</a></li>
+                     <li data-id="5930a05c-1623-e711-915b-eca86b3affee"><a>市区基本养老人数</a></li>
+                     <li data-id="5a30a05c-1623-e711-915b-eca86b3affee"><a>全市基本医保人数</a></li>
+                     <li data-id="5b30a05c-1623-e711-915b-eca86b3affee"><a>市区基本医保人数</a></li>
+                     <li data-id="5c30a05c-1623-e711-915b-eca86b3affee"><a>全市失业保险人数</a></li>
+                     <li data-id="5d30a05c-1623-e711-915b-eca86b3affee"><a>市区失业保险人数</a></li>
+                     <li data-id="5e30a05c-1623-e711-915b-eca86b3affee"><a>全市民用汽车数量</a></li>
+                     <li data-id="5f30a05c-1623-e711-915b-eca86b3affee"><a>全市私人汽车数量</a></li>
+                     <li data-id="6030a05c-1623-e711-915b-eca86b3affee"><a>全市私人汽车占民用汽车比例</a></li>
+                     <li data-id="6130a05c-1623-e711-915b-eca86b3affee"><a>全市常住人均拥有私人汽车数</a></li>
+            </ul>
+            <h5 class="fold"><s></s>科教文卫(52)</h5>
+            <ul style="display: none" id="systemRule">
+                     <li data-id="7da2b3c0-1623-e711-915b-eca86b3affee"><a>全市教育事业费支出</a></li>
+                     <li data-id="7ea2b3c0-1623-e711-915b-eca86b3affee"><a>全市人均教育事业费支出</a></li>
+                     <li data-id="7fa2b3c0-1623-e711-915b-eca86b3affee"><a>全市教育事业费支出占财政支出比例</a></li>
+                     <li data-id="80a2b3c0-1623-e711-915b-eca86b3affee"><a>全市教育事业费支出占GDP比例</a></li>
+                     <li data-id="81a2b3c0-1623-e711-915b-eca86b3affee"><a>市区教育事业费支出</a></li>
+                     <li data-id="82a2b3c0-1623-e711-915b-eca86b3affee"><a>市区教育事业费支出占财政支出比重</a></li>
+                     <li data-id="83a2b3c0-1623-e711-915b-eca86b3affee"><a>市区教育事业费支出占GDP比重</a></li>
+                     <li data-id="84a2b3c0-1623-e711-915b-eca86b3affee"><a>全市高等学校专任教师数</a></li>
+                     <li data-id="85a2b3c0-1623-e711-915b-eca86b3affee"><a>市区高等学校专任教师数</a></li>
+                     <li data-id="86a2b3c0-1623-e711-915b-eca86b3affee"><a>全市普通中学专任教师数</a></li>
+                     <li data-id="87a2b3c0-1623-e711-915b-eca86b3affee"><a>市区普通中学专任教师数</a></li>
+                     <li data-id="88a2b3c0-1623-e711-915b-eca86b3affee"><a>全市小学专任教师数</a></li>
+                     <li data-id="89a2b3c0-1623-e711-915b-eca86b3affee"><a>市区小学专任教师数</a></li>
+                     <li data-id="8aa2b3c0-1623-e711-915b-eca86b3affee"><a>全市高等学校在校学生数</a></li>
+                     <li data-id="8ba2b3c0-1623-e711-915b-eca86b3affee"><a>市区高等学校在校学生数</a></li>
+                     <li data-id="8ca2b3c0-1623-e711-915b-eca86b3affee"><a>全市普通中学在校学生数</a></li>
+                     <li data-id="8da2b3c0-1623-e711-915b-eca86b3affee"><a>市区普通中学在校学生数</a></li>
+                     <li data-id="8ea2b3c0-1623-e711-915b-eca86b3affee"><a>全市小学在校学生数</a></li>
+                     <li data-id="8fa2b3c0-1623-e711-915b-eca86b3affee"><a>市区小学在校学生数</a></li>
+                     <li data-id="90a2b3c0-1623-e711-915b-eca86b3affee"><a>全市高等学校师生比</a></li>
+                     <li data-id="91a2b3c0-1623-e711-915b-eca86b3affee"><a>市区高等学校师生比</a></li>
+                     <li data-id="92a2b3c0-1623-e711-915b-eca86b3affee"><a>全市普通中学师生比</a></li>
+                     <li data-id="93a2b3c0-1623-e711-915b-eca86b3affee"><a>市区普通中学师生比</a></li>
+                     <li data-id="94a2b3c0-1623-e711-915b-eca86b3affee"><a>全市小学师生比</a></li>
+                     <li data-id="95a2b3c0-1623-e711-915b-eca86b3affee"><a>市区小学师生比</a></li>
+                     <li data-id="96a2b3c0-1623-e711-915b-eca86b3affee"><a>全市地方财政科学事业费支出</a></li>
+                     <li data-id="97a2b3c0-1623-e711-915b-eca86b3affee"><a>全市地方财政人均科学事业费支出</a></li>
+                     <li data-id="98a2b3c0-1623-e711-915b-eca86b3affee"><a>全市科学事业费支出占财政一般预算支出比例</a></li>
+                     <li data-id="99a2b3c0-1623-e711-915b-eca86b3affee"><a>全市地方财政科学事业费支出占生产总值比例</a></li>
+                     <li data-id="9aa2b3c0-1623-e711-915b-eca86b3affee"><a>市区地方财政科学事业费支出</a></li>
+                     <li data-id="9ba2b3c0-1623-e711-915b-eca86b3affee"><a>市区科学事业费支出占财政一般预算支出比重</a></li>
+                     <li data-id="9ca2b3c0-1623-e711-915b-eca86b3affee"><a>市区地方财政科学事业费支出占生产总值比重</a></li>
+                     <li data-id="9da2b3c0-1623-e711-915b-eca86b3affee"><a>全市公共医疗卫生支出</a></li>
+                     <li data-id="9ea2b3c0-1623-e711-915b-eca86b3affee"><a>全市人均公共医疗卫生支出</a></li>
+                     <li data-id="9fa2b3c0-1623-e711-915b-eca86b3affee"><a>全市公共医疗卫生支出占地方财政支出比重</a></li>
+                     <li data-id="a0a2b3c0-1623-e711-915b-eca86b3affee"><a>全市公共医疗卫生支出占GDP比重</a></li>
+                     <li data-id="a1a2b3c0-1623-e711-915b-eca86b3affee"><a>全市医院、卫生院数</a></li>
+                     <li data-id="a2a2b3c0-1623-e711-915b-eca86b3affee"><a>市区医院、卫生院数</a></li>
+                     <li data-id="a3a2b3c0-1623-e711-915b-eca86b3affee"><a>全市医院、卫生院床位数</a></li>
+                     <li data-id="a4a2b3c0-1623-e711-915b-eca86b3affee"><a>市区医院、卫生院床位数</a></li>
+                     <li data-id="a5a2b3c0-1623-e711-915b-eca86b3affee"><a>全市医生数</a></li>
+                     <li data-id="a6a2b3c0-1623-e711-915b-eca86b3affee"><a>市区医生数</a></li>
+                     <li data-id="a7a2b3c0-1623-e711-915b-eca86b3affee"><a>全市户籍每万人医生数</a></li>
+                     <li data-id="a8a2b3c0-1623-e711-915b-eca86b3affee"><a>市区户籍每万人医生数</a></li>
+                     <li data-id="a9a2b3c0-1623-e711-915b-eca86b3affee"><a>全市剧场、影剧院数</a></li>
+                     <li data-id="aaa2b3c0-1623-e711-915b-eca86b3affee"><a>市区剧场、影剧院数</a></li>
+                     <li data-id="aba2b3c0-1623-e711-915b-eca86b3affee"><a>全市户籍每百万人剧场、影剧院数</a></li>
+                     <li data-id="aca2b3c0-1623-e711-915b-eca86b3affee"><a>市区户籍每百万人剧场、影剧院数</a></li>
+                     <li data-id="ada2b3c0-1623-e711-915b-eca86b3affee"><a>全市公共图书馆图书总藏量</a></li>
+                     <li data-id="aea2b3c0-1623-e711-915b-eca86b3affee"><a>市区公共图书馆图书总藏量</a></li>
+                     <li data-id="afa2b3c0-1623-e711-915b-eca86b3affee"><a>全市公共图书馆户籍每百人图书藏量</a></li>
+                     <li data-id="b0a2b3c0-1623-e711-915b-eca86b3affee"><a>市区公共图书馆户籍每百人图书藏量</a></li>
+            </ul>
+            <h5 class="fold"><s></s>基础设施(37)</h5>
+            <ul style="display: none" id="systemRule">
+                     <li data-id="773d2431-1723-e711-915b-eca86b3affee"><a>市区人口</a></li>
+                     <li data-id="783d2431-1723-e711-915b-eca86b3affee"><a>城区人口</a></li>
+                     <li data-id="793d2431-1723-e711-915b-eca86b3affee"><a>城区人口和暂住人口合计</a></li>
+                     <li data-id="7a3d2431-1723-e711-915b-eca86b3affee"><a>城区面积</a></li>
+                     <li data-id="7b3d2431-1723-e711-915b-eca86b3affee"><a>城区人口密度</a></li>
+                     <li data-id="7c3d2431-1723-e711-915b-eca86b3affee"><a>市区完成基础设施投资额</a></li>
+                     <li data-id="7d3d2431-1723-e711-915b-eca86b3affee"><a>市区完成道路桥梁设施投资额</a></li>
+                     <li data-id="7e3d2431-1723-e711-915b-eca86b3affee"><a>市区完成道路桥梁设施投资额占完成基础设施投资额比例</a></li>
+                     <li data-id="7f3d2431-1723-e711-915b-eca86b3affee"><a>市区完成园林绿化设施投资额</a></li>
+                     <li data-id="803d2431-1723-e711-915b-eca86b3affee"><a>市区完成园林绿化设施投资额占完成基础设施投资额比例</a></li>
+                     <li data-id="813d2431-1723-e711-915b-eca86b3affee"><a>市区基础设施新增固定资产</a></li>
+                     <li data-id="823d2431-1723-e711-915b-eca86b3affee"><a>市区道路里程</a></li>
+                     <li data-id="833d2431-1723-e711-915b-eca86b3affee"><a>市区道路面积</a></li>
+                     <li data-id="843d2431-1723-e711-915b-eca86b3affee"><a>市区道路平均路幅</a></li>
+                     <li data-id="853d2431-1723-e711-915b-eca86b3affee"><a>市区道路路网密度</a></li>
+                     <li data-id="863d2431-1723-e711-915b-eca86b3affee"><a>市区人均道路面积</a></li>
+                     <li data-id="873d2431-1723-e711-915b-eca86b3affee"><a>市区绿化覆盖面积</a></li>
+                     <li data-id="883d2431-1723-e711-915b-eca86b3affee"><a>市区建成区绿化覆盖面积</a></li>
+                     <li data-id="893d2431-1723-e711-915b-eca86b3affee"><a>市区建成区绿化覆盖率</a></li>
+                     <li data-id="8a3d2431-1723-e711-915b-eca86b3affee"><a>市区园林绿地面积</a></li>
+                     <li data-id="8b3d2431-1723-e711-915b-eca86b3affee"><a>市区建成区园林绿地面积</a></li>
+                     <li data-id="8c3d2431-1723-e711-915b-eca86b3affee"><a>市区公园绿地面积</a></li>
+                     <li data-id="8d3d2431-1723-e711-915b-eca86b3affee"><a>市区建成区绿地率</a></li>
+                     <li data-id="8e3d2431-1723-e711-915b-eca86b3affee"><a>市区人均公共绿地面积</a></li>
+                     <li data-id="8f3d2431-1723-e711-915b-eca86b3affee"><a>市区公共汽(电)车营运车辆数</a></li>
+                     <li data-id="903d2431-1723-e711-915b-eca86b3affee"><a>中国地级市以上市区每万人拥有公共交通车辆</a></li>
+                     <li data-id="913d2431-1723-e711-915b-eca86b3affee"><a>市区出租汽车车辆数</a></li>
+                     <li data-id="923d2431-1723-e711-915b-eca86b3affee"><a>全市年末移动电话用户数量</a></li>
+                     <li data-id="933d2431-1723-e711-915b-eca86b3affee"><a>全市年末人均移动电话数量</a></li>
+                     <li data-id="943d2431-1723-e711-915b-eca86b3affee"><a>全市年末国际互连网用户数量</a></li>
+                     <li data-id="953d2431-1723-e711-915b-eca86b3affee"><a>市区居民生活用水量</a></li>
+                     <li data-id="963d2431-1723-e711-915b-eca86b3affee"><a>市区人均用水量</a></li>
+                     <li data-id="973d2431-1723-e711-915b-eca86b3affee"><a>市区全年用电总量</a></li>
+                     <li data-id="983d2431-1723-e711-915b-eca86b3affee"><a>市区全年生活用电量</a></li>
+                     <li data-id="993d2431-1723-e711-915b-eca86b3affee"><a>市区全年人均生活用电量</a></li>
+                     <li data-id="9a3d2431-1723-e711-915b-eca86b3affee"><a>市区全年工业用电量</a></li>
+                     <li data-id="da71bfb8-a725-e711-915b-eca86b3affee"><a>城区暂住人口</a></li>
+            </ul>
+            <h5 class="fold"><s></s>土地供应(57)</h5>
+            <ul style="display: none" id="systemRule">
+                     <li data-id="cf9fc086-1723-e711-915b-eca86b3affee"><a>土地供应宗数</a></li>
+                     <li data-id="d09fc086-1723-e711-915b-eca86b3affee"><a>土地供应面积</a></li>
+                     <li data-id="d19fc086-1723-e711-915b-eca86b3affee"><a>土地供应平均每宗面积</a></li>
+                     <li data-id="d29fc086-1723-e711-915b-eca86b3affee"><a>新增土地供应面积</a></li>
+                     <li data-id="d39fc086-1723-e711-915b-eca86b3affee"><a>新增土地供应面积占总供应面积比例</a></li>
+                     <li data-id="d49fc086-1723-e711-915b-eca86b3affee"><a>土地划拨宗数</a></li>
+                     <li data-id="d59fc086-1723-e711-915b-eca86b3affee"><a>土地划拨面积</a></li>
+                     <li data-id="d69fc086-1723-e711-915b-eca86b3affee"><a>土地划拨平均每宗面积</a></li>
+                     <li data-id="d79fc086-1723-e711-915b-eca86b3affee"><a>土地划拨面积占供应面积比例</a></li>
+                     <li data-id="d89fc086-1723-e711-915b-eca86b3affee"><a>新增土地划拨面积</a></li>
+                     <li data-id="d99fc086-1723-e711-915b-eca86b3affee"><a>划拨新增土地面积占划拨面积比例</a></li>
+                     <li data-id="da9fc086-1723-e711-915b-eca86b3affee"><a>土地出让宗数</a></li>
+                     <li data-id="db9fc086-1723-e711-915b-eca86b3affee"><a>土地出让面积</a></li>
+                     <li data-id="dc9fc086-1723-e711-915b-eca86b3affee"><a>土地出让平均每宗面积</a></li>
+                     <li data-id="dd9fc086-1723-e711-915b-eca86b3affee"><a>土地出让面积占供应面积比例</a></li>
+                     <li data-id="de9fc086-1723-e711-915b-eca86b3affee"><a>新增土地出让面积</a></li>
+                     <li data-id="df9fc086-1723-e711-915b-eca86b3affee"><a>出让新增土地面积占出让面积比例</a></li>
+                     <li data-id="e09fc086-1723-e711-915b-eca86b3affee"><a>土地出让成交价款</a></li>
+                     <li data-id="e19fc086-1723-e711-915b-eca86b3affee"><a>土地出让平均单价</a></li>
+                     <li data-id="e29fc086-1723-e711-915b-eca86b3affee"><a>土地协议出让宗数</a></li>
+                     <li data-id="e39fc086-1723-e711-915b-eca86b3affee"><a>土地协议出让面积</a></li>
+                     <li data-id="e49fc086-1723-e711-915b-eca86b3affee"><a>土地协议出让平均每宗面积</a></li>
+                     <li data-id="e59fc086-1723-e711-915b-eca86b3affee"><a>土地协议出让面积占出让面积比例</a></li>
+                     <li data-id="e69fc086-1723-e711-915b-eca86b3affee"><a>新增土地协议出让面积</a></li>
+                     <li data-id="e79fc086-1723-e711-915b-eca86b3affee"><a>协议出让新增土地面积占协议出让面积比例</a></li>
+                     <li data-id="e89fc086-1723-e711-915b-eca86b3affee"><a>土地协议出让成交价款</a></li>
+                     <li data-id="e99fc086-1723-e711-915b-eca86b3affee"><a>土地协议出让平均单价</a></li>
+                     <li data-id="ea9fc086-1723-e711-915b-eca86b3affee"><a>土地协议出让平均单价/出让平均单价</a></li>
+                     <li data-id="eb9fc086-1723-e711-915b-eca86b3affee"><a>土地招拍挂出让宗数</a></li>
+                     <li data-id="ec9fc086-1723-e711-915b-eca86b3affee"><a>土地招拍挂出让面积</a></li>
+                     <li data-id="ed9fc086-1723-e711-915b-eca86b3affee"><a>土地招拍挂出让平均每宗面积</a></li>
+                     <li data-id="ee9fc086-1723-e711-915b-eca86b3affee"><a>土地招拍挂出让面积占出让面积比例</a></li>
+                     <li data-id="ef9fc086-1723-e711-915b-eca86b3affee"><a>招拍挂新增土地出让面积</a></li>
+                     <li data-id="f09fc086-1723-e711-915b-eca86b3affee"><a>招拍挂出让新增土地面积占招拍挂出让面积比例</a></li>
+                     <li data-id="f19fc086-1723-e711-915b-eca86b3affee"><a>土地招拍挂出让成交价款</a></li>
+                     <li data-id="f29fc086-1723-e711-915b-eca86b3affee"><a>土地招拍挂出让平均单价</a></li>
+                     <li data-id="f39fc086-1723-e711-915b-eca86b3affee"><a>土地招拍挂出让平均单价/出让平均单价</a></li>
+                     <li data-id="f49fc086-1723-e711-915b-eca86b3affee"><a>供应工矿仓储用地</a></li>
+                     <li data-id="f59fc086-1723-e711-915b-eca86b3affee"><a>供应工矿仓储用地占土地供应比例</a></li>
+                     <li data-id="f69fc086-1723-e711-915b-eca86b3affee"><a>供应商业服务用地</a></li>
+                     <li data-id="f79fc086-1723-e711-915b-eca86b3affee"><a>供应商业服务用地占土地供应比例</a></li>
+                     <li data-id="f89fc086-1723-e711-915b-eca86b3affee"><a>供应住宅用地</a></li>
+                     <li data-id="f99fc086-1723-e711-915b-eca86b3affee"><a>供应住宅用地占土地供应比例</a></li>
+                     <li data-id="fa9fc086-1723-e711-915b-eca86b3affee"><a>供应普通商品住房用地</a></li>
+                     <li data-id="fb9fc086-1723-e711-915b-eca86b3affee"><a>供应普通商品住房用地占住宅用地供应比例</a></li>
+                     <li data-id="fc9fc086-1723-e711-915b-eca86b3affee"><a>供应中低价、中小套商品住房用地</a></li>
+                     <li data-id="fd9fc086-1723-e711-915b-eca86b3affee"><a>中低价、中小套商品住房占普通商品住房用地供应比例</a></li>
+                     <li data-id="fe9fc086-1723-e711-915b-eca86b3affee"><a>供应经济适用房用地</a></li>
+                     <li data-id="ff9fc086-1723-e711-915b-eca86b3affee"><a>供应经济适用房用地占住宅用地供应比例</a></li>
+                     <li data-id="00a0c086-1723-e711-915b-eca86b3affee"><a>供应廉租房用地</a></li>
+                     <li data-id="01a0c086-1723-e711-915b-eca86b3affee"><a>供应廉租房用地占住宅用地供应比例</a></li>
+                     <li data-id="02a0c086-1723-e711-915b-eca86b3affee"><a>供应保障性住房用地</a></li>
+                     <li data-id="03a0c086-1723-e711-915b-eca86b3affee"><a>供应保障性住房用地占住宅用地供应比例</a></li>
+                     <li data-id="04a0c086-1723-e711-915b-eca86b3affee"><a>供应高档住房用地</a></li>
+                     <li data-id="05a0c086-1723-e711-915b-eca86b3affee"><a>供应高档住房用地占住宅用地供应比例</a></li>
+                     <li data-id="06a0c086-1723-e711-915b-eca86b3affee"><a>供应其他用地</a></li>
+                     <li data-id="07a0c086-1723-e711-915b-eca86b3affee"><a>供应其他用地占土地供应比例</a></li>
+            </ul>
+            <h5 class="fold"><s></s>房地产(41)</h5>
+            <ul style="display: none" id="systemRule">
+                     <li data-id="aac3d02b-1823-e711-915b-eca86b3affee"><a>全市房地产开发投资额</a></li>
+                     <li data-id="abc3d02b-1823-e711-915b-eca86b3affee"><a>全市房地产开发投资额比上年增长</a></li>
+                     <li data-id="acc3d02b-1823-e711-915b-eca86b3affee"><a>全市房地产开发投资额占生产总值比重</a></li>
+                     <li data-id="adc3d02b-1823-e711-915b-eca86b3affee"><a>全市房地产开发投资额占固定资产投资额比重</a></li>
+                     <li data-id="aec3d02b-1823-e711-915b-eca86b3affee"><a>市区房地产开发投资额</a></li>
+                     <li data-id="afc3d02b-1823-e711-915b-eca86b3affee"><a>市区房地产开发投资额比上年增长</a></li>
+                     <li data-id="b0c3d02b-1823-e711-915b-eca86b3affee"><a>市区房地产开发投资额占生产总值比重</a></li>
+                     <li data-id="b1c3d02b-1823-e711-915b-eca86b3affee"><a>市区房地产开发投资额占固定资产投资额比重</a></li>
+                     <li data-id="b2c3d02b-1823-e711-915b-eca86b3affee"><a>全市房地产开发住宅投资额</a></li>
+                     <li data-id="b3c3d02b-1823-e711-915b-eca86b3affee"><a>全市房地产开发住宅投资额比上年增长</a></li>
+                     <li data-id="b4c3d02b-1823-e711-915b-eca86b3affee"><a>全市商品住宅投资额占生产总值比重</a></li>
+                     <li data-id="b5c3d02b-1823-e711-915b-eca86b3affee"><a>全市商品住宅投资额占固定资产投资比重</a></li>
+                     <li data-id="b6c3d02b-1823-e711-915b-eca86b3affee"><a>全市商品住宅投资额占房地产开发投资比重</a></li>
+                     <li data-id="b7c3d02b-1823-e711-915b-eca86b3affee"><a>市区房地产开发住宅投资额</a></li>
+                     <li data-id="b8c3d02b-1823-e711-915b-eca86b3affee"><a>市区房地产开发住宅投资额比上年增长</a></li>
+                     <li data-id="b9c3d02b-1823-e711-915b-eca86b3affee"><a>市区商品住宅投资额占生产总值比重</a></li>
+                     <li data-id="bac3d02b-1823-e711-915b-eca86b3affee"><a>市区商品住宅投资额占固定资产投资比重</a></li>
+                     <li data-id="bbc3d02b-1823-e711-915b-eca86b3affee"><a>市区商品住宅投资额占房地产开发投资比重</a></li>
+                     <li data-id="bcc3d02b-1823-e711-915b-eca86b3affee"><a>全市商品房销售额</a></li>
+                     <li data-id="bdc3d02b-1823-e711-915b-eca86b3affee"><a>全市商品房销售额比上年增长</a></li>
+                     <li data-id="bec3d02b-1823-e711-915b-eca86b3affee"><a>全市商品住宅销售额</a></li>
+                     <li data-id="bfc3d02b-1823-e711-915b-eca86b3affee"><a>全市商品住宅销售额比上年增长</a></li>
+                     <li data-id="c0c3d02b-1823-e711-915b-eca86b3affee"><a>全市商品住宅销售额占商品房销售额比例</a></li>
+                     <li data-id="c1c3d02b-1823-e711-915b-eca86b3affee"><a>全市商品房销售面积</a></li>
+                     <li data-id="c2c3d02b-1823-e711-915b-eca86b3affee"><a>全市商品房销售面积比上年增长</a></li>
+                     <li data-id="c3c3d02b-1823-e711-915b-eca86b3affee"><a>全市商品住宅销售面积</a></li>
+                     <li data-id="c4c3d02b-1823-e711-915b-eca86b3affee"><a>全市商品住宅销售面积比上年增长</a></li>
+                     <li data-id="c5c3d02b-1823-e711-915b-eca86b3affee"><a>全市商品住宅销售面积占商品房销售面积比例</a></li>
+                     <li data-id="c6c3d02b-1823-e711-915b-eca86b3affee"><a>全市商品房平均价</a></li>
+                     <li data-id="c7c3d02b-1823-e711-915b-eca86b3affee"><a>全市商品房平均价比上年增长</a></li>
+                     <li data-id="c8c3d02b-1823-e711-915b-eca86b3affee"><a>全市商品住宅平均价</a></li>
+                     <li data-id="c9c3d02b-1823-e711-915b-eca86b3affee"><a>全市商品住宅平均价比上年增长</a></li>
+                     <li data-id="cac3d02b-1823-e711-915b-eca86b3affee"><a>全市人均购商品住房面积（按户籍人口计算）</a></li>
+                     <li data-id="cbc3d02b-1823-e711-915b-eca86b3affee"><a>全市人均购商品住房面积（按常住人口计算）</a></li>
+                     <li data-id="ccc3d02b-1823-e711-915b-eca86b3affee"><a>全市房价收入比（按人均30平方米计）</a></li>
+                     <li data-id="cdc3d02b-1823-e711-915b-eca86b3affee"><a>城镇居民人均可支配收入可购全市商品住宅面积</a></li>
+                     <li data-id="cec3d02b-1823-e711-915b-eca86b3affee"><a>全市职工年平均工资可购全市商品住宅面积</a></li>
+                     <li data-id="cfc3d02b-1823-e711-915b-eca86b3affee"><a>全市户籍人均储蓄可购全市商品住房面积</a></li>
+                     <li data-id="d0c3d02b-1823-e711-915b-eca86b3affee"><a>全市常住人均储蓄可购全市商品住房面积</a></li>
+                     <li data-id="d1c3d02b-1823-e711-915b-eca86b3affee"><a>供应保障性住房用地</a></li>
+                     <li data-id="d2c3d02b-1823-e711-915b-eca86b3affee"><a>供应保障性住房用地占住宅用地供应比例</a></li>
+            </ul>
+            <h5 class="fold"><s></s>房地产(克而瑞监测)(6)</h5>
+            <ul style="display: none" id="systemRule">
+                     <li data-id="01f1eb21-5d3c-e711-bf56-eca86b3affee"><a>全市商品住宅供应面积</a></li>
+                     <li data-id="02f1eb21-5d3c-e711-bf56-eca86b3affee"><a>全市商品住宅供应套数</a></li>
+                     <li data-id="03f1eb21-5d3c-e711-bf56-eca86b3affee"><a>全市商品住宅成交面积</a></li>
+                     <li data-id="04f1eb21-5d3c-e711-bf56-eca86b3affee"><a>全市商品住宅成交套数</a></li>
+                     <li data-id="05f1eb21-5d3c-e711-bf56-eca86b3affee"><a>全市商品住宅成交均价</a></li>
+                     <li data-id="06f1eb21-5d3c-e711-bf56-eca86b3affee"><a>全市商品住宅成交金额</a></li>
+            </ul>
+    </div>
+   
+</div>
+<script>
+    $(function () {
+        $(".m-systemnav h5").click(function () {
+            $(this).next("ul").slideToggle();
+            $(this).toggleClass("fold");
+        });
+        $(".m-systemnav h3").click(function () {
+            $(this).next("div").slideToggle();
+            $(this).toggleClass("fold");
+        });
+
+        $(".m-systemnav h1 s").click(function () {
+            $(".m-systemnav .sosobox").slideDown();
+        });
+        $(".sosobox").mouseleave(function () {
+            $(this).slideUp("slow");
+        });        
+    })
+</script>
+    
+    <div class="termwrap" style="min-height:719px;overflow:hidden;">
+        <div class="screenh1">
+            <label>对比模板</label>
+            <div class="selmoban">
+                <h3><s></s><b>核心指标对比（2015）</b></h3>
+                <ul>
+                        <li data-id="4b3d8411-f006-4b7f-80d4-8ecab500f5b5">   
+                           <span>核心指标对比（2015）</span>   
+                        </li>
+                        <li data-id="1a325f05-702d-4c61-b836-a403d9c13e86">   
+                           <span>核心指标对比（2014）</span>   
+                        </li>
+                </ul>
+                
+            </div>
+        </div>
+
+        <div class="contrastbtn" style="border-bottom: 5px solid #f2f4f8;">
+
+            <div class="">
+                <li>
+                    <label style="float:left;margin-top:8px;">城市选择：</label>
+                    <div class="selcity" style="width:20%;margin-top:8px;">
+                        <h3><b id="selCity">全部城市</b><s></s></h3>
+                    </div>
+                </li>
+            </div>
+            <div style="text-align:right;">
+            <button class="bluebtnb" id="btnaddModel"><img src="/Images/saveicon.png" />保存对比模板</button>
+            <button class="bluebtnb" onclick="RemoveAllCompare()" style="margin-left:10px;"><img src="/Images/cancelicon.png" />清空对比项</button>
+            
+            </div>
+        </div>
+        <div class="compareguide"style="display:none"><img src="/Images/compareguide.png" /></div>
+        
+        <div class="m-screen">
+            <div style="border:10px solid #fff;border-right:0;overflow:hidden;position:relative;">
+                <div id="content" class="rulerscroll">
+
+                </div>
+            </div>
+            
+            
+
+            <div class="alertip"><img src="/Images/alert.png" />备注：2005至2015年数据来源为国家部委及省市（自治区）统计年鉴，2016年数据口径为估算。</div>
+        </div>
+        
+    </div>
+
+</div>
+<div class="popwin small">
+    <button class="closepop"></button>
+    <div class="popcon">
+        <div class="addcity" style="display: none">
+        </div>
+        <div class="citygroup" style="display: none">
+        </div>
+        <div class="addmoban" style="display: none">
+            <h5>添加到自定义筛选模板</h5>
+            <ul>
+                <li>
+                    <input type="text" id="iptTemplateName" placeholder="请输入模板名称" />
+                </li>
+                <li>
+                    <p class="error" style="display: none">
+                        <s>
+                            <img src="/Images/tips.png" />
+                        </s><span></span>
+                    </p>
+                </li>
+            </ul>
+            <div class="popbtn">
+                <input type="button" class="confirm" value="确定" />
+                <input type="button" class="cancel" value="关闭" />
+            </div>
+        </div>
+
+        <div class="quicktip" style="display: none">
+            <h5>CRIC投资决策-提示</h5>
+            <ul>
+                <li>
+                    您确定清空所选条件吗？
+                </li>
+            </ul>
+            <div class="popbtn">
+                <input type="button" class="confirm" value="确定" id="confirmclearall"/>
+            </div>
+        </div>
+        <div class="addref" style="display: none">
+            <h5>参考值</h5>
+            <ul>
+                <li>
+                    <b>请选择</b>
+                    <label>
+                        <input type="checkbox" name="chxRefer" value="min" />最小值
+                    </label>
+                    <label>
+                        <input type="checkbox" name="chxRefer" value="max" />最大值
+                    </label>
+                    
+                    <label>
+                        <input type="checkbox" name="chxRefer" value="avg" checked="checked" />平均值
+                    </label>
+                    <label>
+                        <input type="checkbox" name="chxRefer" value="mid" checked="checked" />中位数
+                    </label>
+                </li>
+                <li>
+                    <p class="error">
+                        <s>
+                            <img src="/Images/tips.png" />
+                        </s><span>最多选择3个指标</span>
+                    </p>
+                </li>
+            </ul>
+            <div class="popbtn">
+                <input type="button" class="confirm" value="确定" />
+                <input type="button" class="cancel" value="关闭" />
+            </div>
+        </div>
+    </div>
+</div>
+<div class="popbg"></div>
+
+
+<div class="fullscreen">
+    
+</div>
+<input type="hidden" id="selCityGroup" value="全部城市"/>
+<input type="hidden" id="isCompose" value="0"/>
+<input type="hidden" id="selRule" value=""/>
+<input type="hidden" value="0" id="showorderIndex" />
+<script>
+    $(function () {
+
+        $("#importantRule li").bind("dblclick", function () {
+            var indexid = $(this).attr("data-id");
+            AddNewRule(indexid);
+        });
+        $("#systemRule li").bind("dblclick", function () {
+            var indexid = $(this).attr("data-id");
+            AddNewRule(indexid);
+        });
+        //添加到自定义模版
+        $("#btnaddModel").click(function () {
+            $("#iptTemplateName").val('');
+            $(".popwin .addmoban").show().siblings().hide();
+            $(".popwin").addClass("small");
+            $(".popbg").show();
+            $(".popwin").slideDown();
+        });
+        //弹出关闭按钮
+        $(".closepop").click(function () {
+            $(".popbg").hide();
+            $(".popwin").removeClass("small");
+            $(".popwin").hide();
+        });
+        $(".popwin .cancel").click(function () {
+            $(".popbg").hide();
+            $(".popwin").removeClass("small");
+            $(".popwin").hide();
+        });
+        //弹出
+        $(".selcity").click(function () {
+            $.ajax({
+                url: '/City/Shared/_CityGroupAddPartial',
+                type: 'post',
+                data: { "CityGroup": $(".selcity b").html(), "isCompose": $("#isCompose").val() },
+                datatype: 'html',
+                success: function (data) {
+                    $(".popwin .citygroup").html(data);
+                    $(".popwin .citygroup").show().siblings().hide();
+                    $(".popbg").show();
+                    $(".popwin").addClass("small");
+                    $(".popwin").slideDown();
+                },
+                error: function (data) {
+                    console.log(data);
+                }
+            });
+        });
+
+        $("#confirmclearall").click(function () {
+            Confirm();
+            $(".popbg").hide();
+            $(".popwin").removeClass("small");
+            $(".popwin").hide();
+        });
+        //模版输入款focus
+        $("#iptTemplateName").focus(function () {
+            $(".popwin .addmoban .error").hide();
+        });
+        //自定义模版确认
+        $(".popwin .addmoban .confirm").click(function () {
+            var name = $("#iptTemplateName").val();
+            if (!name) {
+                $(".popwin .addmoban .error span").html("请输入模版名称！");
+                $(".popwin .addmoban .error").show();
+                return;
+            }
+            var aryTemplate = [];
+            $(".selmoban li span").each(function (index, item) {
+                aryTemplate.push($(this).html());
+            });
+            if (aryTemplate.indexOf(name) > -1) {
+                $(".popwin .addmoban .error span").html("当前名字已存在，请修改后在保存！");
+                $(".popwin .addmoban .error").show();
+                return;
+            }
+            //保存
+            var Condition = {};
+            var aryIndex = [];
+
+            $("#sortable .rulerbox").each(function (index, item) {
+                var index = {};
+                index.INDEX_ID = $(this).attr("data-id");
+                if ($(this).attr("data-issum") == "True") {
+                    index.DATE_TIME = $(this).find("b[id=startDate]").attr("data-sDate") + "," + $(this).find("b[id=endDate]").attr("data-eDate");
+
+                }
+                else {
+                    index.DATE_TIME = $(this).find("b[id=singleDate]").attr("data-sinDate");
+                }
+                aryIndex.push(index);
+            });
+            Condition.CITY_GROUP = $(".selcity b").html();
+            Condition.listIndex = aryIndex;
+            Condition.TEMPLATE_NAME = name;
+
+            $.ajax({
+                url: '/City/CityCompare/AddTemplate',
+                type: 'post',
+                data: { "Param": JSON.stringify(Condition) },
+                datatype: 'json',
+                success: function (data) {
+                    if (data.flag == "1") {
+                        //更新模版列表
+                        $(".selmoban h3 b").text(name);
+                        var li = '<li data-id="' + data.content + '">' +
+                            '<span>' + name + '</span><a>删除</a></li>';
+                        $(".selmoban ul").prepend(li);
+                        BindTempLiClick();
+                        alert("保存成功");
+                        $(".popbg").hide();
+                        $(".popwin").removeClass("small");
+                        $(".popwin").hide();
+                    }
+                    else {
+                        $(".popwin .addmoban .error span").html(data.content);
+                        $(".popwin .addmoban .error").show();
+                    }
+                },
+                error: function (data) {
+                    console.log(data);
+                }
+            });
+        });
+
+        $(".selmoban h3").click(function () {
+            $(this).siblings("ul").show();
+            $(this).parent().addClass("fold");
+        });
+        $(".selmoban").mouseleave(function () {
+            $(this).find("ul").hide();
+            $(this).removeClass("fold");
+        });
+
+        $(".selyear h3").click(function () {
+            $(this).siblings("ul").show();
+            $(this).parent().addClass("fold");
+        });
+        $(".selyear").mouseleave(function () {
+            $(this).find("ul").hide();
+            $(this).removeClass("fold");
+        });
+
+        BindTempLiClick();
+        CompareByTemplate('4b3d8411-f006-4b7f-80d4-8ecab500f5b5');
+
+        
+    });
+
+    function BindTempLiClick() {
+        $(".selmoban li span").unbind("click").click(function () {
+            debugger
+            $(this).parent().parent().hide();
+            $(this).parent().parent().removeClass("fold");
+            var text = $(this).html();
+            $(".selmoban h3 b").text(text);
+            CompareByTemplate($(this).parent().attr("data-id"));
+        });
+
+
+
+        
+        //删除模版
+        $(".selmoban li a").unbind("click").click(function () {
+            var $that = $(this);
+            confirm("确认要删除模板？", function () {
+                var id = $that.parent().attr("data-id");
+                if ($that.siblings("span").html().trim() == $(".selmoban h3 b").text().trim()) {
+                    alert("不能删除当前模板！");
+                    return;
+                }
+                $.ajax({
+                    url: '/City/CityCompare/DeleteTemplate',
+                    type: 'post',
+                    data: { "TemplateId": id },
+                    success: function (data) {
+                        if (data.flag == "1") {
+                            $that.parent().remove();
+                            BindTempLiClick();
+                            alert("删除成功");
+                        }
+                        else {
+                            alert(data.content);
+                        }
+                    },
+                    error: function (data) {
+                        console.log(data);
+                    }
+                });
+            })
+        });
+    }
+
+    function comfrimCitySel() {
+        var group = "";
+        var allgroup = [];
+        if ($("input[name='allgroup']:checked").size() > 0) {
+            $("input[name='allgroup']:checked").each(function () {
+                allgroup.push($(this).val());
+            });
+        }
+        if ($("input[name='groupcity']:checked").size() > 0) {
+            $("input[name='groupcity']:checked").each(function () {
+                allgroup.push($(this).val());
+            });
+        }
+        if ($("input[name='usercity']:checked").size() > 0) {
+            $("input[name='usercity']:checked").each(function () {
+                allgroup.push($(this).val());
+            });
+        }
+        group = allgroup.join(",");
+
+        $("#selCityGroup").val(group);
+        $("#selCity").html(group);
+
+        $(".popwin").hide();
+        $(".popbg").hide();
+    }
+
+    function closeCityWin() {
+        $(".popwin").hide();
+        $(".popbg").hide();
+    }
+
+    function CompareByTemplate(id) {
+        if (id != "" && id != undefined) {
+            $.ajax({
+                url: '/City/CityCompare/CityCompareListByTemplate',
+                type: 'post',
+                data: { "TemplateId": id },
+                datatype: 'html', beforeSend: function () {
+                    $("#content").html("<div class=\"load-container load4\"><div class=\"loader\">Loading...</div></div>");
+                },
+                success: function (data) {
+                    $(".compareguide").hide();
+                    $(".m-screen").show();
+                    $("#content").html(data);
+                },
+                error: function (data) {
+                    console.log(data);
+                    $("#content").html(globle.Util.Error404);
+                },
+                beforeSend: function () {
+                    $("#content").html(globle.Util.Loading);
+                }
+            });
+        }
+    }
+    function RemoveAllCompare() {
+        confirm("确认要清空对比条件？", function () {
+            Confirm();
+            
+         })
+    }
+
+    function Confirm() {
+        $("#content").empty();
+        $(".compareguide").show();
+        $(".contrastbtn").hide();
+        $(".m-screen").hide();
+        $("#selRule").val("");
+        $(".selmoban h3 b").text("请选择模版");
+    }
+
+    function AddNewRule(id) {
+        var Condition = {};
+        Condition.IndexID = id;
+        Condition.iscompose = $("#isCompose").val();
+        Condition.isfirst=false
+        Condition.citylist = "";
+        Condition.grouplist = $(".selcity b").html();
+
+        $("#selCityList li>a").each(function () {
+            Condition.citylist += $(this).html() + ",";
+        });
+        if (Condition.citylist == "") {
+
+            Condition.isfirst = true;
+        } 
+        else { Condition.citylist = Condition.citylist.substr(0, Condition.citylist.length - 1); }
+        var topvalue = ",,,";
+        
+        $("#sortable .rulerbox").each(function (index, item) {
+            topvalue = $(this).find("h6").attr("style") + "," + $(this).find(".rulericon").attr("style") + "," + $(this).find(".closebtn").attr("style") + "," + $(this).find(".yearrange").attr("style");
+        });
+        Condition.topvalue = topvalue;
+        Condition.indexcount = parseInt($("#showorder").val() == undefined ? $("#showorderIndex").val() : $("#showorder").val()) + 1;
+        $("#showorderIndex").val(Condition.indexcount);
+        $.ajax({
+            url: '/City/CityCompare/CityCompareByRule',
+            type: 'post',
+            data: { "param": JSON.stringify(Condition) },
+            datatype: 'json',
+            success: function (data) {
+                
+                $(".contrastbtn").show();
+                $(".m-screen").show();
+                $(".compareguide").hide();
+                //var isnew = false;
+                if ($("#content").html() == "") {
+                    $("#content").empty();
+                    $("#content").append("<div class=\"rulerblock\" id=\"sortable\"><div class=\"rulercity\"><h3>城市列表</h3><ul id=\"selCityList\"></ul></div></div>");
+                    for (var i = 0; i < Condition.citylist.split(',').length; i++) {
+                        $("#selCityList").append("<li><a>" + Condition.citylist.split(',')[i] + "</a></li>");
+                    }
+                    //$("#content").append("<div class=\"rulerright\"></div> ");
+                    $(".rulerblock").after("<div class=\"mapcomparebox\" style=\"margin-left:115px;position:absolute\" >");
+                    //isnew = true;
+                    
+                }
+                else {
+                    $(".rulerbox").each(function () {
+                        $(this).css("margin-left", "");
+                    });
+                }
+                $(".rulercity").after(data);
+                var name = id + Condition.indexcount.toString();
+                $(".mapcomparebox").prepend("<button name='" + name + "' class=\"mapcomparebtn\" onclick=\"mapcompare('" + id + "','" + $("#" + name).attr("data-name") + "','" + $("#" + name).attr("data-time") + "')\" >地图对比</button>");
+
+                //if (isnew) {
+                    var i = 0;
+                    $(".rulerbox").each(function () {
+                        if (i == 0) {
+                            $(this).css("margin-left", "115px");
+                        }
+                        i++;
+                    });
+                //}
+                    $("#content")[0].scrollTop = 0;
+            }
+        });
+
+    }
+    function mapcompare(id, name, time) {
+        var cond = {};
+        cond.INDEX_ID = id;
+        cond.SHOW_NAME = name;
+        cond.DATE_TIME = time;
+        cond.CITY_GROUP = $(".selcity b").html();
+        cond.COLOR_COUNT = 4;
+        cond.COLOR_DETAIL = "0|5|#8fcbee;5|25|#62b4e8;25|50|#62a1e8;50|100|#5486d8";
+        var url = "/City/CityMapTools/MapToolReirect" + "?Param=" + encodeURI(JSON.stringify(cond).replace(/\#/g, "jhjth"));
+        window.open(url);
+    }
+
+    function Compare() {
+        var IndexList = [];
+        var Condition = {};
+        $(".rulerscroll .rulerbox").each(function (index, item) {
+            var index = {};
+            index.INDEX_ID = $(this).attr("data-id");
+            if ($(this).find("b[id=singleDate]").attr("data-sinDate") != undefined) {
+                index.DATE_TIME = $(this).find("b[id=singleDate]").attr("data-sinDate");
+            }
+            else { index.DATE_TIME = $(this).find("b[id=startDate]").attr("data-sDate") + "," + $(this).find("b[id=endDate]").attr("data-eDate") }
+            index.isOrder = $(this).attr("data-isorder");
+            index.orderDesc = $(this).attr("data-desc");
+            IndexList.push(index);
+        });
+
+        Condition.CITY_GROUP = $("#selCityGroup").val();
+        Condition.list = IndexList;
+       
+        Condition.ShowMode = $("#isCompose").val();
+        $.ajax({
+            url: '/City/CityCompare/CityCompareList',
+            type: 'post',
+            data: { "param": JSON.stringify(Condition), },
+            datatype: 'html',
+            beforeSend: function () {
+                $("#content").html("<div class=\"load-container load4\"><div class=\"loader\">Loading...</div></div>");
+            },
+            success: function (data) {
+                $("#content").html(data);
+                var i = 0;
+                $(".rulerbox").each(function () {
+                    i++;
+                });
+                if (i < 5) {
+                    $(".mapcomparebox")[0].style.position = "absolute";
+                }
+            },
+            error: function (data) {
+                cons
