@@ -14,7 +14,7 @@ class TestController extends Controller
 {
     public function actionIndex()
     {
-        echo "this is a test!!!";
+        echo "this is a test";
         //return $this->render('index');
     }
 
