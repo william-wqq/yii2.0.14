@@ -22,6 +22,14 @@ $config = [
             'port' => 6379,
             'database' => 0,
         ],
+        'mongodb' => [
+            'class' => '\yii\mongodb\Connection',
+            'dsn' => 'mongodb://@localhost:27017/mongodb',
+            'options' => [
+                "username" => "william",
+                "password" => "123456"
+            ]
+        ],
         'cache' => [
             //'class' => 'yii\caching\FileCache',
             'class' => 'yii\redis\Cache',
