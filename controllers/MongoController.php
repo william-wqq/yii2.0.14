@@ -3,7 +3,7 @@
 namespace app\controllers;
 use Yii;
 
-class MongoDBController extends \yii\web\Controller
+class MongoController extends \yii\web\Controller
 {
     public function actionIndex()
     {
