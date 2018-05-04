@@ -5,7 +5,7 @@ use Yii;
 
 class MongoController extends \yii\web\Controller
 {
-    public function actionIndex()
+    public function actionAdd()
     {
         //return $this->render('index');
         $collection = Yii::$app->mongodb->getCollection('country');
