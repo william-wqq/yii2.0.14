@@ -12,18 +12,42 @@ class MongoController extends \yii\web\Controller
 
     public function actionAdd()
     {
-        //return $this->render('index');
+        $request = Yii::$app->request;
+        $id = $request->get('id');
+        $name = $request->get('name');
         $collection = Yii::$app->mongodb->getCollection('country');
-        $collection->insert(['id' => '2', 'name' => '美国']);
-        echo 'add success';
+        $_id = $collection->insert(['id' => $id, 'name' => $name]);
+        echo 'add success _id='.$_id;
 
     }
 
     public function actionUpdate()
     {
+        $request = Yii::$app->request;
+        $id = $request->get('id');
+        $name = $request->get('name');
         $collection = Yii::$app->mongodb->getCollection('country');
-        $collection->update(['id' => '2'], ['name' => '日本']);
-        echo 'update success';
+        $collection->update(['id' => $id], ['name' => $name]);
+        echo 'update success id='.$id;
+    }
+
+    public function actionDelete()
+    {
+        $request = Yii::$app->request;
+        $id = $request->get('id');
+        $collection = Yii::$app->mongodb->getCollection('country');
+        $collection->remove(['id' => $id]);
+        echo 'delete success id='.$id;
+    }
+
+    public function actionGet()
+    {
+        $request = Yii::$app->request;
+        $id = $request->get('id');
+        $collection = Yii::$app->mongodb->getCollection('country');
+        $country = $collection->find(['id' => $id]);
+        var_dump($country);
+
     }
 
 }
