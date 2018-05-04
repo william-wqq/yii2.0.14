@@ -45,7 +45,7 @@ class MongoController extends \yii\web\Controller
         $request = Yii::$app->request;
         $id = $request->get('id');
         $collection = Yii::$app->mongodb->getCollection('country');
-        $country = $collection->find(['id' => $id]);
+        $country = $collection->find(['id' => $id])->toArray();
         var_dump($country);
 
     }
