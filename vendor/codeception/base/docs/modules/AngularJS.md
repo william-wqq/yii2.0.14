@@ -358,6 +358,18 @@ $I->checkOption('#agree');
  * `param` $option
 
 
+### clearField
+ 
+Clears given field which isn't empty.
+
+``` php
+<?php
+$I->clearField('#username');
+```
+
+ * `param` $field
+
+
 ### click
  
 Perform a click on a link or a button, given by a locator.
@@ -431,8 +443,8 @@ $I->clickWithRightButton(['css' => '.checkout'], 20, 50);
 ```
 
  * `param string` $cssOrXPath css or xpath of the web element (body by default).
- * `param int`    $offsetX
- * `param int`    $offsetY
+ * `param int` $offsetX
+ * `param int` $offsetY
 
 @throws \Codeception\Exception\ElementNotFound
 
@@ -1898,4 +1910,4 @@ $I->waitForText('foo', 30, '.title'); // secs
  * `param string` $selector optional
 @throws \Exception
 
-<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.3/src/Codeception/Module/AngularJS.php">Help us to improve documentation. Edit module reference</a></div>
+<p>&nbsp;</p><div class="alert alert-warning">Module reference is taken from the source code. <a href="https://github.com/Codeception/Codeception/tree/2.4/src/Codeception/Module/AngularJS.php">Help us to improve documentation. Edit module reference</a></div>

@@ -4,11 +4,11 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitc9edea7c33c2cce60a5a807424f71d3e
+class ComposerStaticInit13160345027ff3a1c6f8e344b3ee2c4e
 {
     public static $files = array (
-        '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         '2cffec82183ee1cea088009cef9a6fc3' => __DIR__ . '/..' . '/ezyang/htmlpurifier/library/HTMLPurifier.composer.php',
+        '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
         'a0edc8309cc5e1d60e3047b5df6b7052' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/functions_include.php',
         '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
@@ -20,6 +20,7 @@ class ComposerStaticInitc9edea7c33c2cce60a5a807424f71d3e
         array (
             'yii\\swiftmailer\\' => 16,
             'yii\\redis\\' => 10,
+            'yii\\mongodb\\' => 12,
             'yii\\gii\\' => 8,
             'yii\\faker\\' => 10,
             'yii\\debug\\' => 10,
@@ -46,12 +47,14 @@ class ComposerStaticInitc9edea7c33c2cce60a5a807424f71d3e
             'Symfony\\Component\\Finder\\' => 25,
             'Symfony\\Component\\EventDispatcher\\' => 34,
             'Symfony\\Component\\DomCrawler\\' => 29,
+            'Symfony\\Component\\Debug\\' => 24,
             'Symfony\\Component\\CssSelector\\' => 30,
             'Symfony\\Component\\Console\\' => 26,
             'Symfony\\Component\\BrowserKit\\' => 29,
         ),
         'P' => 
         array (
+            'Psr\\Log\\' => 8,
             'Psr\\Http\\Message\\' => 17,
         ),
         'G' => 
@@ -69,6 +72,7 @@ class ComposerStaticInitc9edea7c33c2cce60a5a807424f71d3e
         ),
         'C' => 
         array (
+            'Codeception\\PHPUnit\\' => 20,
             'Codeception\\Extension\\' => 22,
             'Codeception\\' => 12,
         ),
@@ -82,6 +86,10 @@ class ComposerStaticInitc9edea7c33c2cce60a5a807424f71d3e
         'yii\\redis\\' => 
         array (
             0 => __DIR__ . '/..' . '/yiisoft/yii2-redis/src',
+        ),
+        'yii\\mongodb\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/yiisoft/yii2-mongodb/src',
         ),
         'yii\\gii\\' => 
         array (
@@ -141,6 +149,10 @@ class ComposerStaticInitc9edea7c33c2cce60a5a807424f71d3e
         array (
             0 => __DIR__ . '/..' . '/symfony/dom-crawler',
         ),
+        'Symfony\\Component\\Debug\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/debug',
+        ),
         'Symfony\\Component\\CssSelector\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/css-selector',
@@ -152,6 +164,10 @@ class ComposerStaticInitc9edea7c33c2cce60a5a807424f71d3e
         'Symfony\\Component\\BrowserKit\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/browser-kit',
+        ),
+        'Psr\\Log\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
         ),
         'Psr\\Http\\Message\\' => 
         array (
@@ -172,6 +188,10 @@ class ComposerStaticInitc9edea7c33c2cce60a5a807424f71d3e
         'DeepCopy\\' => 
         array (
             0 => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy',
+        ),
+        'Codeception\\PHPUnit\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/codeception/phpunit-wrapper/src',
         ),
         'Codeception\\Extension\\' => 
         array (
@@ -770,10 +790,10 @@ class ComposerStaticInitc9edea7c33c2cce60a5a807424f71d3e
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitc9edea7c33c2cce60a5a807424f71d3e::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitc9edea7c33c2cce60a5a807424f71d3e::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInitc9edea7c33c2cce60a5a807424f71d3e::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInitc9edea7c33c2cce60a5a807424f71d3e::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit13160345027ff3a1c6f8e344b3ee2c4e::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit13160345027ff3a1c6f8e344b3ee2c4e::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit13160345027ff3a1c6f8e344b3ee2c4e::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit13160345027ff3a1c6f8e344b3ee2c4e::$classMap;
 
         }, null, ClassLoader::class);
     }
