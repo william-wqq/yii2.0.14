@@ -5,25 +5,24 @@ use Yii;
 
 class MongoController extends \yii\web\Controller
 {
-    public $collection;
-    public function __construct()
+    public function actionIndex()
     {
-        $this->collection = Yii::$app->mongodb->getCollection('country');
-        //parent::__construct($id, $module, $config);
+        echo 'index';
     }
 
     public function actionAdd()
     {
         //return $this->render('index');
-
-        $this->collection->insert(['id' => '2', 'name' => '美国']);
+        $collection = Yii::$app->mongodb->getCollection('country');
+        $collection->insert(['id' => '2', 'name' => '美国']);
         echo 'add success';
 
     }
 
     public function actionUpdate()
     {
-        $this->collection->update(['id' => '2'], ['name' => '日本']);
+        $collection = Yii::$app->mongodb->getCollection('country');
+        $collection->update(['id' => '2'], ['name' => '日本']);
         echo 'update success';
     }
 
