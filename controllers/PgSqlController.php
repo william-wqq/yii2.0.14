@@ -12,7 +12,7 @@ class PgSqlController extends \yii\web\Controller
         $countries = Country::find()
             ->where(['id' => 1])
             ->one();
-        print_r($countries);die;
+        print_r($countries->name);die;
     }
 
 }
